@@ -1,0 +1,41 @@
+.game {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.turn {
+    font-size: 24px;
+    margin: 8px 0;
+}
+
+.game-board {
+
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 128px;
+    height: 128px;
+    flex-shrink: 0;
+    font-size: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ddd;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.cell.empty {
+    cursor: pointer;
+}
+
+.cell:hover {
+    opacity: 0.6;
+}
