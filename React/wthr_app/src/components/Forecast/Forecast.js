@@ -23,11 +23,11 @@ const Forecast = () => {
         }
 
         .then(response => (response.json())
-       .then(response => {
+        .then(response => {
         setResponseObj(response)
 
 }
-)});
+),);
 ;
 
 return (
@@ -41,4 +41,4 @@ return (
 )
 }
 
-export default Forecast;
+export default {forecast};
