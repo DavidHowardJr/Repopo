@@ -1,26 +1,23 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const Forecast = () => {
-
-    let [responseObj, setResponseObj] = useState({});
-
     function getForecast() {
-        const url = 'https://open-weather-map27.p.rapidapi.com/weather';
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '4cdd02d352mshed0d6704df0b2e3p1847acjsnf8f05c978289',
-                'X-RapidAPI-Host': 'open-weather-map27.p.rapidapi.com'
-            }
-        };
-        
-        try {
-            const response = await fetch(url, options);
-            const result = await response.text();
-            console.log(result);
-        } catch (error) {
-            console.error(error);
-        }
+        const url = 'https://weatherapi-com.p.rapidapi.com/forecast.json?q=London&days=3';
+const options = {
+	method: 'GET',
+	headers: {
+		'X-RapidAPI-Key': '4cdd02d352mshed0d6704df0b2e3p1847acjsnf8f05c978289',
+		'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+	}
+};
+
+try {
+	const response = await fetch(url, options);
+	const result = await response.text();
+	console.log(result);
+} catch (error) {
+	console.error(error);
+}
 
         .then(response => (response.json())
         .then(response => {
@@ -29,6 +26,7 @@ const Forecast = () => {
 }
 ),);
 ;
+    } 
 
 return (
     <div>
