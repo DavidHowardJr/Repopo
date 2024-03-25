@@ -27,7 +27,7 @@ function App() {
 
                     </div>
                     <div className="col-4">
-                        <button type="submit" className="btn btn-primary">Add Todo</button>
+                        <button type="submit" className="font-weight-bold">Add Todo</button>
                     </div>
                 </div>
             </form>
