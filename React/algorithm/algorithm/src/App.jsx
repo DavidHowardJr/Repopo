@@ -1,5 +1,5 @@
 import './App.css'
-import {useParams} from "../src/context/ParamsProvider"
+import {useParams} from "../src/context/context"
 
 function App() {
   console.log(useParams())

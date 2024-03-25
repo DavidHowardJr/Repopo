@@ -3,7 +3,7 @@ import './Navbar.css'
 import { useParams } from '../../context/context'
 
 export default function Navbar() {
-    const {StrictMode, setmode, algo, setalgo, setres, setrun} =useParams()
+    const {mode, setmode, algo, setalgo, setres, setrun} =useParams()
 
 
     return (
@@ -22,10 +22,33 @@ export default function Navbar() {
                     <i className="bi bi-geo"></i>
                 </button>
                 <button type="button" className={['btn', 'btn-primary', mode=='addbricks'? 'selected' : ''].join(' ')} onClick={()=>{
-                    if(mode == 'addbricks')}
+                    if(mode == 'addbricks') setmode(null)
+                    else {setmode('addbricks')}
                 }}>
-                <i
-
+                <i className="bi bi-bricks"></i>
+                </button>
+                <button type="button" className={['btn', 'btn-primary', mode=='addweight'? 'selected': ''].join(' ')} onClick={()=>{
+                    if(mode == 'addweight') setmode(null)
+                    else {setmode('addweight')}
+                }}>
+                    <i className='bi bi-virus'></i>
+                </button>
+                <button type="button" className='btn btn-primary' onClick={()=>{setres((old)=>{ return !old})}}>
+                    <i className='bi bi-arrow-counterclockwise'></i>
+                </button>
+                <button type="button" className="btn btn-primary" onClick={()=>{setrun((old)=>{return !old})}}>
+                    <i className="bi bi-caret-right"></i>
+                </button>
+                <div>
+                    <select className="form-select" aria-label="Default select example" value={algo} onChange={(e)=>{
+                        setalgo(e.target.value)
+                    }}>
+                        <option value=''>Choose your algorithm</option>
+                        <option value="dijkstra">dijkstra</option>
+                        <option value="BDS">BDS</option>
+                        <option value="BFS">BFS</option>
+                    </select>
+                </div>
             </div>
         </div>
     )
