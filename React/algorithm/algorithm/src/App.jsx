@@ -1,5 +1,5 @@
 import './App.css'
-import Grid from './components/Grid/Grid'
+import Grid from './components/grid/grid'
 import Navbar from './components/Navbar/Navbar'
 
 
