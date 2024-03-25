@@ -1,14 +1,17 @@
 import './App.css'
-import {useParams} from "../src/context/context"
+import Grid from './components/Grid/Grid'
+import Navbar from './components/Navbar/Navbar'
+
+
 
 function App() {
-  console.log(useParams())
+
 
   return (
-    
-      <div>
-        
-      </div>
+    <div className="App">
+     <Navbar></Navbar>
+     <Grid></Grid>
+    </div>
   )
 }
 
