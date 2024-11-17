@@ -38,13 +38,13 @@ function App() {
     },
   ];
 
-  //useEffect(() => {
-  //  const interval = setInterval(() => {
-  //    handleNext();
-  //  }, 3000)
-  //
-  //  return () => clearInterval(interval);
-  //}, [currentInterval])
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 3000)
+  
+    return () => clearInterval(interval);
+  }, [currentImage])
 
   const handleNext = () => {
     if (currentImage === images.length - 1) {
