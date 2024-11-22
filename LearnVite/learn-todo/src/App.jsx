@@ -36,7 +36,7 @@ const deleteTodo = (deleteValue) => {
           {todoList.map((singleTodo, index) => {
             return (
             <li key={index}
-            className='bg-black mb-5 flex justify-between text-white py-5 
+            className='bg-black mb-5 flex justify-between text-red-600 py-5 
             rounded-lg text-3xl px-5'>{singleTodo.todoName}{''}
             <span onClick={() => deleteTodo(singleTodo.todoName)}
             className='text-red-600 cursor-pointer'>x</span>
