@@ -1,7 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background: url("whack/mario-bg.jpg");
+    background: url("whack/bg.jpeg");
     background-size: cover;
 }
 
@@ -14,7 +14,7 @@ body {
     display: flex;
     flex-wrap: wrap;
 
-    background: url("whack/soil.png");
+    background: url("whack/lc.png");
     background-size: cover;
     border: 3px white solid;
     border-radius: 25px;
@@ -24,7 +24,7 @@ body {
 #board div {
     width: 180px;
     height: 180px;
-    background-image: url("whack/pipe.png");
+    background-image: url("whack/hole.png");
     background-size: cover;
 }
 
