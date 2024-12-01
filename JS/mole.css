@@ -1,28 +1,29 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    background: url("whack/mario-bg.jpg");
+    background: url('whack/mario-bg.jpg');
     background-size: cover;
 }
 
 #board {
     width: 540px;
     height: 540px;
-    background: url("whack/soil.png");
+    flex-wrap: wrap;
 
     margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
 
+    background: url('whack/soil.png');
     background-size: cover;
     border: 3px solid white;
     border-radius: 25px;
+
 }
 
 #board div {
     width: 180px;
     height: 180px;
-    background-image: url("whack/pipe.png");
+    background-image: url('whack/pipe.png');
     background-size: cover;
 }
 
@@ -32,3 +33,4 @@ body {
 
     user-select: none;
 }
+

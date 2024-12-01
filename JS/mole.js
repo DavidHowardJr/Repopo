@@ -3,23 +3,24 @@ let currPlantTile;
 let score = 0;
 let gameOver = false;
 
+
 window.onload = function() {
-    setGame();
+    setGame()
 }
 
 function setGame() {
-    for (let i = 0; i < 9; i++){
-        let tile = document.createElement("div");
+    for(let i = 0; i < 9; i++) {
+
+        let tile = document.createElement('div');
         tile.id = i.toString();
-        tile.addEventListener("click", selecTile);
-        document.getElementById("board").appendChild(tile);
+        tile.addEventListener('click', selectTile)
+        document.getElementById('board').appendChild(tile);
     }
     setInterval(setMole, 2000);
     setInterval(setPlant, 3000);
 }
 
 function getRandomTile() {
-    
     let num = Math.floor(Math.random() * 9);
     return num.toString();
 }
@@ -28,13 +29,11 @@ function setMole() {
     if (gameOver) {
         return;
     }
-
     if (currMoleTile) {
-        currMoleTile.innerHTML = "";
+        currMoleTile.innerHTML = '';
     }
-
-    let mole = document.createElement("img");
-    mole.src = "whack/monty-mole.png";
+    let mole = document.createElement('img');
+    mole.src = 'whack/monty-mole.png';
 
     let num = getRandomTile();
     if (currPlantTile && currPlantTile.id == num) {
@@ -48,13 +47,12 @@ function setPlant() {
     if (gameOver) {
         return;
     }
-
     if (currPlantTile) {
-        currPlantTile.innerHTML = "";
+        currPlantTile.innerHTML = '';
     }
 
-    let plant = document.createElement("img");
-    plant.src = "whack/piranha-plant.png";
+    let plant = document.createElement('img');
+    plant.src = 'whack/piranha-plant.png';
 
     let num = getRandomTile();
     if (currMoleTile && currMoleTile.id == num) {
@@ -64,16 +62,16 @@ function setPlant() {
     currPlantTile.appendChild(plant);
 }
 
-function selecTile() {
+function selectTile() {
     if (gameOver) {
         return;
     }
     if (this == currMoleTile) {
         score += 10;
-        document.getElementById("score").innerText = score.toString();
+        document.getElementById('score').innerText = score.toString();
     } 
     else if (this == currPlantTile) {
-        document.getElementById("score").innerText = "GAME OVER: " + score.toString();
+        document.getElementById('score').innerText = 'Game Over: ' + score.toString();
         gameOver = true;
     }
 }
