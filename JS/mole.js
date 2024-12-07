@@ -1,23 +1,21 @@
-let currMoleTile;
-let currPlantTile;
+let currBugTile;
+let currManTile;
 let score = 0;
 let gameOver = false;
 
-
 window.onload = function() {
-    setGame()
+    setGame();
 }
 
 function setGame() {
     for(let i = 0; i < 9; i++) {
-
-        let tile = document.createElement('div');
+        let tile = document.createElement("div");
         tile.id = i.toString();
-        tile.addEventListener('click', selectTile)
-        document.getElementById('board').appendChild(tile);
+        tile.addEventListener("click", selectTile);
+        document.getElementById("board").appendChild(tile);
     }
-    setInterval(setMole, 2000);
-    setInterval(setPlant, 3000);
+    setInterval(setBug, 2000);
+    setInterval(setMan, 3000);
 }
 
 function getRandomTile() {
@@ -25,53 +23,52 @@ function getRandomTile() {
     return num.toString();
 }
 
-function setMole() {
-    if (gameOver) {
+function setBug() {
+    if(gameOver) {
         return;
     }
-    if (currMoleTile) {
-        currMoleTile.innerHTML = '';
+    if(currBugTile) {
+        currBugTile.innerHTML = "";
     }
-    let mole = document.createElement('img');
-    mole.src = 'whack/monty-mole.png';
+    let bug = document.createElement("img");
+    bug.src = "whack/Hoarder.webp";
 
     let num = getRandomTile();
-    if (currPlantTile && currPlantTile.id == num) {
+    if(currManTile && currManTile.id == num) {
         return;
     }
-    currMoleTile = document.getElementById(num);
-    currMoleTile.appendChild(mole);
+    currBugTile = document.getElementById(num);
+    currBugTile.appendChild(bug);
 }
 
-function setPlant() {
-    if (gameOver) {
+function setMan() {
+    if(gameOver) {
         return;
     }
-    if (currPlantTile) {
-        currPlantTile.innerHTML = '';
+    if(currManTile) {
+        currManTile.innerHTML = "";
     }
-
-    let plant = document.createElement('img');
-    plant.src = 'whack/piranha-plant.png';
+    let man = document.createElement("img");
+    man.src = "whack/man.png";
 
     let num = getRandomTile();
-    if (currMoleTile && currMoleTile.id == num) {
+    if(currBugTile && currBugTile.id == num) {
         return;
     }
-    currPlantTile = document.getElementById(num);
-    currPlantTile.appendChild(plant);
+    currManTile = document.getElementById(num);
+    currManTile.appendChild(man);
 }
 
 function selectTile() {
-    if (gameOver) {
+    if(gameOver) {
         return;
     }
-    if (this == currMoleTile) {
+    if(this == currBugTile) {
+        document.getElementById("score").innerText = score.toString();
         score += 10;
-        document.getElementById('score').innerText = score.toString();
-    } 
-    else if (this == currPlantTile) {
-        document.getElementById('score').innerText = 'Game Over: ' + score.toString();
+    }
+    else if(this == currManTile) {
+        document.getElementById("score").innerText = "GAME OVER " + score.toString();
         gameOver = true;
     }
 }
