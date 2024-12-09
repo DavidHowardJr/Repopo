@@ -8,7 +8,7 @@ window.onload = function() {
 }
 
 function setGame() {
-    for(let i = 0; let < 9; i++) {
+    for(let i = 0; i < 9; i++) {
         let tile = document.createElement("div");
         tile.id = i.toString();
         tile.addEventListener("click", selectTile);
