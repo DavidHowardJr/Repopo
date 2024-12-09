@@ -1,7 +1,8 @@
-let currBugTile;
-let currManTile;
+let currMoleTile;
+let currPlantTile;
 let score = 0;
 let gameOver = false;
+
 
 window.onload = function() {
     setGame();
@@ -14,60 +15,49 @@ function setGame() {
         tile.addEventListener("click", selectTile);
         document.getElementById("board").appendChild(tile);
     }
-    setInterval(setBug, 2000);
-    setInterval(setMan, 3000);
 }
 
 function getRandomTile() {
     let num = Math.floor(Math.random() * 9);
-    return num.toString();
+   return num.toString();
 }
 
-function setBug() {
-    if(gameOver) {
-        return;
+function setMole() {
+    if(currMoleTile) {
+        currMoleTile.innerHTML = "";
     }
-    if(currBugTile) {
-        currBugTile.innerHTML = "";
-    }
-    let bug = document.createElement("img");
-    bug.src = "whack/Hoarder.webp";
+    let mole = document.createElement("img");
+    mole.src = "whack/monty-mole.png";
 
     let num = getRandomTile();
-    if(currManTile && currManTile.id == num) {
+    if(currPlantTile && currPlantTile.id == num) {
         return;
     }
-    currBugTile = document.getElementById(num);
-    currBugTile.appendChild(bug);
+    currMoleTile = document.getElementById(num);
+    currMoleTile.appendChild(mole);
 }
 
-function setMan() {
-    if(gameOver) {
-        return;
+function setPlant() {
+    if(currPlantTile) {
+        currPlantTile.innerHTML = "";
     }
-    if(currManTile) {
-        currManTile.innerHTML = "";
-    }
-    let man = document.createElement("img");
-    man.src = "whack/man.png";
+    let plant = document.createElement("img");
+    plant.src = "whack/piranha-plant.png";
 
     let num = getRandomTile();
-    if(currBugTile && currBugTile.id == num) {
+    if(currMoleTile && currMoleTile.id == num) {
         return;
     }
-    currManTile = document.getElementById(num);
-    currManTile.appendChild(man);
+    currPlantTile = document.getElementById(num);
+    currPlantTile.appendChild(plant);
 }
 
 function selectTile() {
-    if(gameOver) {
-        return;
-    }
-    if(this == currBugTile) {
-        document.getElementById("score").innerText = score.toString();
+    if(this == currMoleTile) {
         score += 10;
+        document.getElementById("score").innerText = score.toString();
     }
-    else if(this == currManTile) {
+    else if(this == currPlantTile) {
         document.getElementById("score").innerText = "GAME OVER " + score.toString();
         gameOver = true;
     }
