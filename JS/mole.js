@@ -3,9 +3,11 @@ let currPlantTile;
 let score = 0;
 let gameOver = false;
 
+
 window.onload = function() {
     setGame();
 }
+
 
 function setGame() {
     for(let i = 0; i < 9; i++) {
@@ -64,8 +66,8 @@ function selectTile() {
         score += 10;
         document.getElementById("score").innerText = score.toString();
     }
-    else if(this == currPlantTile) {
+    else if (this == currPlantTile) {
         document.getElementById("score").innerText = "GAME OVER " + score.toString();
-        let gameOver = true;
+        gameOver = true;
     }
 }

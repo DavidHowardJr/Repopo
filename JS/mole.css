@@ -8,13 +8,12 @@ body {
 #board {
     width: 540px;
     height: 540px;
-
     background: url("whack/soil.png");
     background-size: cover;
     border: 3px solid white;
     border-radius: 25px;
 
-    margin: 25px;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
